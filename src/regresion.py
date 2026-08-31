@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 
 df = pd.read_csv("data/telco_clean.csv")
@@ -42,3 +43,18 @@ print(y_pred[:10])
 
 print("\nPrimeras 10 observaciones reales:")
 print(y_test.iloc[:10].values)
+
+mae = mean_absolute_error(y_test, y_pred)
+
+mse = mean_squared_error(y_test, y_pred)
+
+rmse = mse ** 0.5
+
+r2 = r2_score(y_test, y_pred)
+
+print("\nMetricas de evaluacion del modelo de regresion:")
+
+print(f"MAE: {mae:.4f}")
+print(f"MSE: {mse:.4f}")
+print(f"RMSE: {rmse:.4f}")
+print(f"R²: {r2:.4f}")
