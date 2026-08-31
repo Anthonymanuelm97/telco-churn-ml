@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
 
 df = pd.read_csv("data/telco_clean.csv")
 
@@ -84,3 +85,16 @@ print(y_pred_log[:20])
 
 print("\nPrimeras 20 observaciones reales:")
 print(y_test.iloc[:20].values)
+
+#Arbol de decision
+
+modelo_tree = DecisionTreeClassifier(
+    random_state=42
+)
+
+modelo_tree.fit(X_train, y_train)
+
+y_pred_tree = modelo_tree.predict(X_test)
+
+print("\nPrimeras 20 predicciones del arbol de decision:")
+print(y_pred_tree[:20])
