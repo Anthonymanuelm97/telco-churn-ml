@@ -1,4 +1,5 @@
 import pandas as pd
+from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 
 
@@ -29,3 +30,15 @@ print("\nForma de X_test:", X_test.shape)
 print("\nForma de y_train:", y_train.shape)
 print("\nForma de y_test:", y_test.shape)
 
+
+#Entrenar el modelo
+modelo_reg = LinearRegression()
+modelo_reg.fit(X_train, y_train)
+
+#Realizar predicciones
+y_pred = modelo_reg.predict(X_test)
+print("\nPrimeras 10 predicciones:")
+print(y_pred[:10])
+
+print("\nPrimeras 10 observaciones reales:")
+print(y_test.iloc[:10].values)
