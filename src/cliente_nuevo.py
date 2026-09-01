@@ -160,3 +160,26 @@ print(
 #Para el cliente hipotético analizado, el modelo de regresión estima una antigüedad aproximada de 19.75 meses. 
 #El modelo de clasificación estima una probabilidad de abandono del 74.24%, por lo que el cliente sería considerado de alto riesgo
 #y podría ser conveniente aplicar una estrategia de retención, como una oferta personalizada o una revisión de su plan.
+
+# ============================================================
+# 6. CLIENTE COMPLETO CON RESULTADOS
+# ============================================================
+
+cliente_resultado = cliente.copy()
+
+cliente_resultado["tenure"] = round(
+    tenure_predicho,
+    2
+)
+
+cliente_resultado["TotalCharges"] = round(
+    cliente_resultado["MonthlyCharges"] * tenure_predicho,
+    2
+)
+
+cliente_resultado["Churn"] = (
+    "Yes" if prediccion_churn == 1 else "No"
+)
+
+print("\nCliente hipotético con resultados completos:")
+print(cliente_resultado)
