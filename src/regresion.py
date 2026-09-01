@@ -1,4 +1,5 @@
 import pandas as pd
+import joblib
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
@@ -58,3 +59,18 @@ print(f"MAE: {mae:.4f}")
 print(f"MSE: {mse:.4f}")
 print(f"RMSE: {rmse:.4f}")
 print(f"R²: {r2:.4f}")
+
+# Guardar modelo y columnas de regresion 
+
+
+joblib.dump(
+    modelo_reg,
+    "models/modelo_regresion.pkl"
+)
+
+joblib.dump(
+    X.columns.tolist(),
+    "models/columnas_regresion.pkl"
+)
+
+print("\nModelo de regresión guardado correctamente.")
