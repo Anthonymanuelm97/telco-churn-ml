@@ -1,4 +1,5 @@
 import pandas as pd
+import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
@@ -325,3 +326,24 @@ print(
     "Accuracy test:",
     round(accuracy_tree_ajustado_test, 4)
 )
+
+
+# GUARDAR MODELO DE CLASIFICACIÓN Y PREPROCESAMIENTO
+
+
+joblib.dump(
+    modelo_log,
+    "models/modelo_clasificacion.pkl"
+)
+
+joblib.dump(
+    scaler,
+    "models/scaler_clasificacion.pkl"
+)
+
+joblib.dump(
+    X.columns.tolist(),
+    "models/columnas_clasificacion.pkl"
+)
+
+print("\nModelo de clasificación guardado correctamente.")
