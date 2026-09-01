@@ -161,9 +161,8 @@ print(
 #El modelo de clasificación estima una probabilidad de abandono del 74.24%, por lo que el cliente sería considerado de alto riesgo
 #y podría ser conveniente aplicar una estrategia de retención, como una oferta personalizada o una revisión de su plan.
 
-# ============================================================
-# 6. CLIENTE COMPLETO CON RESULTADOS
-# ============================================================
+
+#Resultados de cliente con todas las columnas
 
 cliente_resultado = cliente.copy()
 
